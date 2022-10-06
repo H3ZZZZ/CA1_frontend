@@ -9,6 +9,7 @@ const findPersonsByHobbyBtn = document.getElementById("personByHobbyBtn")
 const findPersonsByZipBtn = document.getElementById("personByZipAndCityBtn")
 const addPersonBtn = document.getElementById("addBtn")
 const findCountByHobbyBtn = document.getElementById("hobbyCountBtn")
+const findCountByZipBtn = document.getElementById("zipCountBtn")
 
 
 function hideAllShowOne(idToShow) {
@@ -30,6 +31,7 @@ function menuItemClicked(evt) {
       addPersonBtn.addEventListener("click", personFacade.addPerson);
       findPersonsByZipBtn.addEventListener("click", personFacade.getPersonsByZipAndCity);
       findCountByHobbyBtn.addEventListener("click", personFacade.getCountByHobby);
+      findCountByZipBtn.addEventListener("click", personFacade.getCountByZip)
 
       hideAllShowOne("ex1_html");
       break;

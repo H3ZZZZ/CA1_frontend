@@ -24,15 +24,25 @@ const getPersonsByHobby = () => {
             `${el.personFirstname} ${el.personLastname}`))
 }
 
-const getCountByHobby = () => {
-    const hobbyInput = document.getElementById("countHobbyNameInput")
-    const countHobbyOut = document.getElementById("hobbyCountOut")
-
-    var url = "https://fluffatheduck.dk/tomcat/CA1/api/persons/count/hobby?hobby=" + hobbyInput;
+const getCountByZip = () => {
+    const zipInput = document.getElementById("countZipInput")
+    const countZipOut = document.getElementById("zipCountOut")
+    var url = "https://fluffatheduck.dk/tomcat/CA1/api/persons/count/zip?zip=" + zipInput.value
 
     fetch(url)
         .then((response) => response.json())
-        .then((data) => (countHobbyOut.innerHTML = countHobbyOut.value));
+        .then((data) => (countZipOut.innerHTML = data + " people are living in " + zipInput.value));
+
+}
+
+const getCountByHobby = () => {
+    const hobbyInput = document.getElementById("countHobbyNameInput")
+    const countHobbyOut = document.getElementById("hobbyCountOut")
+    var url = "https://fluffatheduck.dk/tomcat/CA1/api/persons/count/hobby?hobby=" + hobbyInput.value;
+
+    fetch(url)
+        .then((response) => response.json())
+        .then((data) => (countHobbyOut.innerHTML = data + " people are doing " + hobbyInput.value));
 
 }
 const getPersonByPhone = () => {
@@ -49,14 +59,12 @@ const getPersonsByZipAndCity = () => {
     const personByZipInput = document.getElementById("personByZipInput")
     const personByCityInput = document.getElementById("personByCityInput")
     const personByZipAndCityOut = document.getElementById("personsByZipAndCityOut")
-    var url = `https://fluffatheduck.dk/tomcat/CA1/api/persons/city?zipcode=${personByZipInput}&cityname=${personByCityInput}`
+    var url = `https://fluffatheduck.dk/tomcat/CA1/api/persons/city?zipcode=${personByZipInput.value}&cityname=${personByCityInput.value}`
 
     fetch(url)
         .then(res => res.json())
         .then(data => personByZipAndCityOut.innerHTML = data.map((el) =>
-            `<tr><td>${el.cityinfoZipcode}</td>
-           <td>${el.cityinfoCity}</td>`
-        ).join(""))
+            `${el.personFirstname} ${el.personLastname}`))
 }
 
 function makeOptions(method, body) {
@@ -100,8 +108,8 @@ const personFacade = {
     addPerson,
     getPersonsByZipAndCity,
     getCountByHobby,
-    // editPerson,
-    // getCountByZip
+    getCountByZip,
+    // editPerson
 };
 
 export default personFacade;
