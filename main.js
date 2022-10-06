@@ -1,5 +1,9 @@
 import "./style.css";
+import personFacade from "./personFacade.js";
 document.getElementById("all-content").style.display = "block";
+const findPersonByPhoneBtn = document.getElementById("personByPhoneBtn")
+const findPersonByHobbyBtn = document.getElementById("personByHobbyBtn")
+const addPersonBtn = document.getElementById("addBtn")
 
 /*
   Add your JavaScript for all exercises Below or in separate js-files, which you must the import above
@@ -23,10 +27,15 @@ function hideAllShowOne(idToShow) {
   document.getElementById(idToShow).style = "display:block";
 }
 
+
 function menuItemClicked(evt) {
   const id = evt.target.id;
   switch (id) {
     case "ex1":
+      personFacade.getPersons();
+      findPersonByPhoneBtn.addEventListener("click", personFacade.getPersonByPhone);
+      findPersonByHobbyBtn.addEventListener("click", personFacade.getPersonsByHobby);
+      addPersonBtn.addEventListener("click", personFacade.addPerson)
       hideAllShowOne("ex1_html");
       break;
     case "ex2":
