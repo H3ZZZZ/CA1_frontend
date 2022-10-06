@@ -19,7 +19,7 @@
         <!-- Exercise-1 -->
         <div id="ex1_html" style="display: none">
             <h3>Person endpoints</h3>
-            <p>This is where we can use the person endpoints from the api</p>
+            <p>Here we can use the person endpoints from the api</p>
             <div class="row" style="min-height: 5em">
                 <div
                         class="col-md-8 pre-scrollable"
@@ -46,10 +46,23 @@
                     <p id="personByPhoneOut"></p>
                 </div>
                 <div class="col-md-4" style="background-color: powderblue">
-                    <h5>Find Person by Hobby</h5>
+                    <h5>Find Persons by Hobby</h5>
                     <input type="text" id="personByHobbyInput"/>
                     <input type="button" id="personByHobbyBtn" value="Find"/>
                     <p id="personByHobbyOut"></p>
+                </div>
+                <div class="col-md-4" style="background-color: powderblue">
+                    <h5>Find Persons by Zipcode And City</h5>
+                    <input type="number" id="personByZipInput" placeholder="Zip code"/>
+                    <input type="text" id="personByCityInput" placeholder="City">
+                    <input type="button" id="personByZipAndCityBtn" value="Find"/>
+                    <p id="personsByZipAndCityOut"></p>
+                </div>
+                <div class="col-md-4" style="background-color: powderblue">
+                    <h5>Get number of people assigned to a hobby</h5>
+                    <input type="text" id="countHobbyNameInput" placeholder="Name of the hobby">
+                    <input type="button" id="hobbyCountBtn" value="Find"/>
+                    <p id="hobbyCountOut"></p>
                 </div>
             </div>
             <div class="row" style="min-height: 5em">
@@ -73,15 +86,48 @@
 
         <!-- Exercise-2 -->
         <div id="ex2_html" style="display: none">
-            <h3>Exercise 2</h3>
-            <p id="ex2p">Add your basic HTML for Exercise 2 here</p>
+            <h3>Hobby endpoints</h3>
+            <p id="ex2p">Here we can use hobby endpoints from our api</p>
+            <div
+                    class="col-md-8 pre-scrollable"
+                    style="background-color: lightgrey"
+            >
+                <h5>All persons</h5>
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Hobby name</th>
+                        <th>Hobby description</th>
+                    </tr>
+                    </thead>
+
+                    <tbody id="allHobbyRows"></tbody>
+                </table>
+            </div>
         </div>
         <!-- End of HTML for exercise-2 -->
 
         <!-- Exercise-3 -->
         <div id="ex3_html" style="display: none">
-            <h3>Ex-3</h3>
-            <p>Add your basic HTML for Exercise 3 here</p>
+            <h3>City Endpoints</h3>
+            <p>Here we show all zips and cities in Denmark</p>
+            <div
+                    class="col-md-8 pre-scrollable"
+                    style="background-color: lightgrey"
+            >
+                <h5>All cities</h5>
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>Zip code</th>
+                        <th>City name</th>
+                    </tr>
+                    </thead>
+
+                    <tbody id="allCityRows"></tbody>
+                </table>
+            </div>
 
 
         </div>

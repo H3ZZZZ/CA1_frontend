@@ -24,6 +24,17 @@ const getPersonsByHobby = () => {
             `${el.personFirstname} ${el.personLastname}`))
 }
 
+const getCountByHobby = () => {
+    const hobbyInput = document.getElementById("countHobbyNameInput")
+    const countHobbyOut = document.getElementById("hobbyCountOut")
+
+    var url = "https://fluffatheduck.dk/tomcat/CA1/api/persons/count/hobby?hobby=" + hobbyInput;
+
+    fetch(url)
+        .then((response) => response.json())
+        .then((data) => (countHobbyOut.innerHTML = countHobbyOut.value));
+
+}
 const getPersonByPhone = () => {
     const phoneNumberInput = document.getElementById("personByPhoneInput")
     const personByPhoneOut = document.getElementById("personByPhoneOut")
@@ -33,6 +44,21 @@ const getPersonByPhone = () => {
         .then(res => res.json())
         .then(data => personByPhoneOut.innerHTML = `${data.personFirstname} ${data.personLastname}`)
 }
+
+const getPersonsByZipAndCity = () => {
+    const personByZipInput = document.getElementById("personByZipInput")
+    const personByCityInput = document.getElementById("personByCityInput")
+    const personByZipAndCityOut = document.getElementById("personsByZipAndCityOut")
+    var url = `https://fluffatheduck.dk/tomcat/CA1/api/persons/city?zipcode=${personByZipInput}&cityname=${personByCityInput}`
+
+    fetch(url)
+        .then(res => res.json())
+        .then(data => personByZipAndCityOut.innerHTML = data.map((el) =>
+            `<tr><td>${el.cityinfoZipcode}</td>
+           <td>${el.cityinfoCity}</td>`
+        ).join(""))
+}
+
 function makeOptions(method, body) {
     var opts = {
         method: method,
@@ -71,10 +97,10 @@ const personFacade = {
     getPersons,
     getPersonByPhone,
     getPersonsByHobby,
-    addPerson
-    // getPersonsByZipAndCity,
+    addPerson,
+    getPersonsByZipAndCity,
+    getCountByHobby,
     // editPerson,
-    // getCountByHobby,
     // getCountByZip
 };
 

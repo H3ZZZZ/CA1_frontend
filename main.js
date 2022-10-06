@@ -1,23 +1,15 @@
 import "./style.css";
 import personFacade from "./personFacade.js";
+import hobbyFacade from "./hobbyFacade.js";
+import cityFacade from "./cityFacade.js";
+
 document.getElementById("all-content").style.display = "block";
 const findPersonByPhoneBtn = document.getElementById("personByPhoneBtn")
-const findPersonByHobbyBtn = document.getElementById("personByHobbyBtn")
+const findPersonsByHobbyBtn = document.getElementById("personByHobbyBtn")
+const findPersonsByZipBtn = document.getElementById("personByZipAndCityBtn")
 const addPersonBtn = document.getElementById("addBtn")
+const findCountByHobbyBtn = document.getElementById("hobbyCountBtn")
 
-/*
-  Add your JavaScript for all exercises Below or in separate js-files, which you must the import above
-*/
-
-/* JS For Exercise-1 below */
-
-/* JS For Exercise-2 below */
-
-/* JS For Exercise-3 below */
-
-/*
- If you do not understand the code below, don´t worry, it is not necessary for completing the exercises
-*/
 
 function hideAllShowOne(idToShow) {
   document.getElementById("about_html").style = "display:none";
@@ -34,14 +26,19 @@ function menuItemClicked(evt) {
     case "ex1":
       personFacade.getPersons();
       findPersonByPhoneBtn.addEventListener("click", personFacade.getPersonByPhone);
-      findPersonByHobbyBtn.addEventListener("click", personFacade.getPersonsByHobby);
-      addPersonBtn.addEventListener("click", personFacade.addPerson)
+      findPersonsByHobbyBtn.addEventListener("click", personFacade.getPersonsByHobby);
+      addPersonBtn.addEventListener("click", personFacade.addPerson);
+      findPersonsByZipBtn.addEventListener("click", personFacade.getPersonsByZipAndCity);
+      findCountByHobbyBtn.addEventListener("click", personFacade.getCountByHobby);
+
       hideAllShowOne("ex1_html");
       break;
     case "ex2":
+      hobbyFacade.getHobbies();
       hideAllShowOne("ex2_html");
       break;
     case "ex3":
+      cityFacade.getCityinfo();
       hideAllShowOne("ex3_html");
       break;
     default:
