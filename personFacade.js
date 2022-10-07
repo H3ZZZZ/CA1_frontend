@@ -89,11 +89,11 @@ const addPerson = () => {
     const email = document.getElementById("addEmail")
     const succespTag = document.getElementById("addSuccesP")
 
-    const jsonObj = `{
-        personFirstname: ${fName.value},
-        personLastname: ${lName.value},
-        personEmail: ${email.value}
-    }`
+    const jsonObj = {
+        personFirstname: fName.value,
+        personLastname: lName.value,
+        personEmail: email.value
+    }
 
     const options = makeOptions("POST" , jsonObj)
     fetch(url, options)
